@@ -1,8 +1,12 @@
 #include <stdio.h>
 
-int main()
-{
-    int arr[][3] ={{1,2,3},{2,3,4}};
-    printf("%d", *((*arr+1)+0));
+int sum(int a, int b){
+    return a+b;
+}
+
+int main() {
+    int (* f)(int ,int);
+    f = &sum;
+    printf("%d", f(2,3));
     return 0;
 }

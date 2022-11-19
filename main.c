@@ -1,17 +1,18 @@
 #include <stdio.h>
 
-typedef int (*f)(int, int);
-
-int sum(int a, int b)
+void switchTwoNums(int* a, int* b)
 {
-    return a + b;
+    int tmp;
+    tmp = *a;
+    *a = *b;
+    *b = tmp;
 }
 
 int main()
 {
-    f test = &sum;
-    int (*func)(int, int) = sum;
-
-    printf("sum = %d\t%d\t%d", (*test)(2, 3), (*func)(2,3), (*sum)(2,3));
+    int a = 10;
+    int b = 20;
+    switchTwoNums(a,b);
+    printf("%d %d",a,b);
     return 0;
 }
